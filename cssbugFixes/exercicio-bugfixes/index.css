@@ -34,10 +34,10 @@ div>p:first-child {
 }
 
 div img {
-    background: black;
+    width: 20px
 }
 
-ol {
+ol, td {
     box-align: center;
 }
 
@@ -50,6 +50,7 @@ ol {
     color: white;
 }
 
+
 .botao-amarelo:hover {
     background-color: #c44f00;
 }
@@ -58,6 +59,13 @@ ol {
     height: 500px;
     text-align: center;
 }
+
+
+
+.container-lista {
+    align-items: center;
+}
+
 
 .icone {
     height: 15px;
