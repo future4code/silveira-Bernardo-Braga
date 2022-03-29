@@ -1,1 +1,0 @@
-print('"bernardo em python")
