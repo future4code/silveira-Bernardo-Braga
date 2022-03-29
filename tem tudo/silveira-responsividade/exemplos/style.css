@@ -1,0 +1,36 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main{
+    background-color: aquamarine;
+   min-height: 100vh;
+}
+div{
+    border: 3px solid black;
+  
+    font-size: 30px;
+}
+
+p{
+    font-size: 2rem;
+    border: 1px solid red;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+@media screen and (max-device-width : 480px) {
+    main{
+        background-color: coral;
+    }
+    }
+    
+@media screen and (min-device-width : 481px) and (max-device-width : 800px) {
+        /* tablets */
+        main{
+            background-color: rgb(228, 166, 228);
+        }
+ }
+        
