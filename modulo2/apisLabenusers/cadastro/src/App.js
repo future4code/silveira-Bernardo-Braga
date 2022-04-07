@@ -33,8 +33,12 @@ const InputMail = styled.input`
 const ButtonCriar = styled.button`
 
 `
-
-class App extends  React.Component {
+const headers = {
+    headers: {
+        Authorization: "bernardo-braga-silveira"
+    }
+}
+export default class App extends  React.Component {
     state = {
 
         inputName:"",
@@ -46,20 +50,25 @@ class App extends  React.Component {
     }
 
     createUser = () => {
+        console.log("inicio create ")
+        console.log(this.state)
         const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
         const body = {
             name: this.state.inputName,
             email: this.state.inputMail
         }
-        const headers = {
-            headers: {
-                Authorization: "bernardo-braga-silveira"
-            }
-        }
-        console.log('PASSOU AQUI');
+        // const headers = {
+        //     headers: {
+        //         Authorization: "bernardo-braga-silveira"
+        //     }
+        // }
+        
         axios.post(url,body,headers)
         .then((res) =>{
-
+            this.setState({        
+                inputName:"",
+                inputMail:""
+            })
             console.log(res)
             console.log(body.name)
 
@@ -67,27 +76,28 @@ class App extends  React.Component {
         .catch((err) =>{
             console.log(err)
         })
-
+ console.log("fim create ")
     }
 
     getAllUsers = () => {
+        console.log("inicio get ")
+        console.log(this.state)
         const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
-        const headers = {
-            headers: {
-                Authorization: "bernardo-braga-silveira"
-            }
-        }
-        console.log('PASSOU AQUI');
+        // const headers = {
+        //     headers: {
+        //         Authorization: "bernardo-braga-silveira"
+        //     }
+        // }
+        console.log('PASSOU AQUI get');
         axios.get(url,headers)
         .then((res) => {
-            console.log(res)
-            this.setState({
-                inputName:"",
-                inputMail:""
-            })
+            console.log("passou")
+            
+
+
         })
         .catch((err) =>{
-            console.log(err)
+            console.log("deu erro")
         })
 
     }
@@ -125,4 +135,4 @@ class App extends  React.Component {
 
     }
 }
-export default App;
+// export default App;
