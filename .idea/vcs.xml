@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/modulo2/apisLabenusers" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/modulo2/temTudo/labenusers" vcs="Git" />
   </component>
 </project>
