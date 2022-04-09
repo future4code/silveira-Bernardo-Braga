@@ -1,6 +1,7 @@
     import React from "react";
     import styled from 'styled-components';
     import axios from "axios";
+    import AddMusic from "./AddMusic";
 
 
     const MainContainer = styled.div`
@@ -23,57 +24,59 @@
   
      */
     export default class MostraPlaylist extends React.Component {
+        // state = {
+        //     telaAtual: 'primaria'
+        // }
     
-        postAddTracktoPlayList = async() => {
-            
-            try{
-                const url = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks"
-                const header = {
-                    headers:
-                        {
-                            Authorization: "bernardo-braga-silveira"
-                        }
-                }
-                
-                const body = {
-                    body: {
-                        "name": "string",
-                        "artist": "string",
-                        "url": "string"
-                    }
-                }
-                
-                const pathParam = {
-                    playlistId: {
-                        playlistId: this.props.Playlist.id
-                    }
-                }
-    
-                const response = await axios.post(url,body,header,pathParam) // sempre os parametros serao (url,body, header)
-                
-                console.log("passou no postAddTracktoPlayList")
-                console.log(response)
-            }catch(err){
-                console.log(" deu erro no postAddTracktoPlayList")
-                console.log(err)
-            }
-            
-        }
+        // mudaTela = (nometela) => {
+        //     console.log('a tela vai mudar para: '+ nometela);
+        //     this.setState({
+        //         telaAtual: nometela
+        //     })
+        // }
+        
+        // escolherTela = () => {
+        //     console.log('passou aqui')
+        //     switch (this.state.telaAtual) {
+        //
+        //         case 'addMusic':
+        //             console.log('passou aqui')
+        //             return <AddMusic/>;
+        //         default:
+        //             return <MostraPlaylist/>;
+        //
+        //     }
+        // }
         
         
         render() {
+            // const  escolherTela = () => {
+            //     // console.log('passou aqui')
+            //     switch (this.state.telaAtual) {
+            //
+            //         case 'addMusic':
+            //             console.log('passou aqui')
+            //             return <AddMusic/>;
+            //         default:
+            //             console.log('passou aqui')
+            //             return <AddMusic/>;
+            //
+            //     }
+            // }
+            
             const listaPlalist = this.props.Playlist.map((playlist) => {
 
                 return(
-                    <NamePlaylist
-                        key={ playlist.id }
-                    >
+                    <NamePlaylist key={ playlist.id }>
                         { playlist.name }
+                        
                         <Button
                             id={playlist.id}
-                            onClick={ this.postAddTracktoPlayList }
+                            onClick={ () => this.props.MudaTela('addMusic') }
                             placeholder={" Adicionar Musica a Playlist"}
-                        >Adicionar Musica a Playlist</Button>
+                        >
+                            Adicionar Musica a Playlist
+                        </Button>
                             
                     </NamePlaylist>
                 )
@@ -83,8 +86,10 @@
                 <MainContainer>
                     <Lista>
                         { listaPlalist }
-                        
                     </Lista>
+                    {/*<div>*/}
+                    {/*    { escolherTela()}*/}
+                    {/*</div>*/}
                    
                     
                 </MainContainer>
