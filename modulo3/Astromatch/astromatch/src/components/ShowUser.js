@@ -2,53 +2,67 @@ import React, {useState} from 'react'
 import styled from 'styled-components';
 
 const MainContainer = styled.div`
-    display: block;
-    text-align: center;
+    background: orange;
+    opacity: 0,5;
+    margin-top: 5px;
+    margin-left: 1px;
+
+    /* border: 1px solid blue; */
+
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
 `
 const ImagemPersonagem = styled.img`
-    width: 300px;
+    width: 498px;
     height: 300px;
+    margin: 0px;
 `
 const InfoContainer = styled.div`
+    background-color: aliceblue;
+    opacity: 0,5;
+    position: absolute;
+    width: 498px;
     display: flex;
-    flex-direction: column;
+    align-items: flex-end;
+    flex-wrap: wrap;
+
 `
 const Person = styled.div`
     display:flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: 20px;
-    margin-top: 10px;
+    margin: 5px;
+    margin-left: 15px;
+
 `
 
 const NameUser= styled.div`
     margin-right: 10px;
-`
-const IdadeUser = styled.div`
 
 `
+const IdadeUser = styled.div`
+    margin-left: 10px;
+    margin-right: 100%;
+`
 const DescriptionUser = styled.div`
-    margin-bottom: 10px;
-    margin-top: 5px;
+    display: flex;
 `
 
 export default function ShowUser (props) {
-{/* 
-	aqui tera que mostrar a foto da pessoa que vc pegou da api e 
-	mostrar na tela do usuario e mostrar junto com a imagem mostrar a 
-	descricao da pessoa, o nome, a idade, e a foto. A primeira ideia eh
-	de pegar essas informacoes pelo metodo getProfileChoosee 
-*/}
 
     return(
         <MainContainer>
-            <ImagemPersonagem src={props.Person.photo} />
+            
+            <ImagemPersonagem  src={props.Person.photo}/>
             <InfoContainer>
                 <Person>
                     <NameUser>{props.Person.name}</NameUser>
+                    
                     <IdadeUser>{props.Person.age} anos</IdadeUser>
+                   
                 </Person>
+                
                 <DescriptionUser>{props.Person.bio}</DescriptionUser>
+                
             </InfoContainer>
 
 
