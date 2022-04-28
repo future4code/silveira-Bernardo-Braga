@@ -1,6 +1,5 @@
 import axios from 'axios'
 
-export default function Delete () {
     
     const autorization = 'bernardo-braga-silveira'
 
@@ -8,7 +7,7 @@ export default function Delete () {
 
     const header = 'Content-Type: application/json'
 
-    const delDeleteTrip = async (id) => {
+    export const delDeleteTrip = async (id) => {
         try {
 
             const response = await axios.delete(`${url}trips/${id}`,header)
@@ -18,9 +17,8 @@ export default function Delete () {
         } catch (err) {
             
             console.log('deu erro');
-            console.log(err.data);
+            console.log(err.message);
             
         }
 
     }
-}

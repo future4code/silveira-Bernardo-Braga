@@ -1,13 +1,31 @@
 import axios from "axios";
-
-export default function Post () {
+  
 
     const autorization = 'bernardo-braga-silveira'
 
     const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/${autorization}/`
     const header = 'Content-Type: application/json'
 
-    const postCreateTrip = async (name,planet,date,description,durationInDays) => {
+    export const postLogin = async (email,password) => {
+        try {
+            console.log(email);
+            console.log(password);
+            const body = {
+                "email":email,
+                "password":password
+            }
+            const response = await axios.post(`${url}login`,body)
+            console.log(response.data);
+            localStorage.setItem("token", response.data.token)
+
+        } catch (err) {
+            console.log('deu erro');
+            console.log(err);
+        }
+    }
+
+
+    export const postCreateTrip = async (name,planet,date,description,durationInDays) => {
         try {
             const body = {
                 "name": name,
@@ -21,12 +39,12 @@ export default function Post () {
 
 
         } catch (err) {
-            console.log(err.data);
+            console.log(err.message);
             console.log('deu erro');
         }
     }
 
-    const postApplyTrip = async (id,name,age,applicationText,profession,country) => {
+    export const postApplyTrip = async (id,name,age,applicationText,profession,country) => {
         try {
             const body = {
                 "name": name,
@@ -39,11 +57,11 @@ export default function Post () {
 
         } catch (err) {
             console.log('deu erro');
-            console.log(err.data);
+            console.log(err.message);
         }
     }
 
-    const postSignup = async (email,password) => {
+    export const postSignup = async (email,password) => {
         try {
 
             const body = {
@@ -54,23 +72,7 @@ export default function Post () {
 
         } catch (err) {
             console.log('deu erro');
-            console.log(err.data);
+            console.log(err.message);
         } 
     }
 
-    const postLogin = async (email,password) => {
-        try {
-        
-            const body = {
-                'email':email,
-                'password':password
-            }
-            const response = await axios.post(`${url}login`,body,header)
-
-        } catch (err) {
-            console.log('deu erro');
-            console.log(err.data);
-        }
-    }
-
-}

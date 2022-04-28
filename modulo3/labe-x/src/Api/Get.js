@@ -5,9 +5,9 @@ const autorization = 'bernardo-braga-silveira'
 const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/${autorization}/`
 
 
-export default function Gets () {
 
-    const getTrips = async () =>{
+
+    export const getTrips = async () =>{
         try{
 
             const response = await axios.get(`${url}trips`);
@@ -17,12 +17,12 @@ export default function Gets () {
 
         }catch(err){
 
-            console.log(err.data)
+            console.log(err.message)
 
         }
     }
 
-    const getTripDetail = async () => {
+    export const getTripDetail = async () => {
 
         try {
 
@@ -33,11 +33,10 @@ export default function Gets () {
         } catch (err) {
         
             console.log('deu erro')
-            console.log(err.data)
+            console.log(err.message)
         
         }
 
     }
 
 
-} 

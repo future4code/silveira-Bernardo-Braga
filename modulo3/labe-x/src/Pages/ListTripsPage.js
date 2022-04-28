@@ -24,7 +24,7 @@ const Date = styled.div``
 
 
 const ListTripsPage = () =>{
-
+    
 
     const navigate = useNavigate();
 

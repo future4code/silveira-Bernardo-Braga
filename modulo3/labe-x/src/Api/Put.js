@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export default function Put() {
+
     
     const autorization = 'bernardo-braga-silveira'
 
@@ -8,7 +8,7 @@ export default function Put() {
 
     const header = 'Content-Type: application/json'
 
-    const putDecideCandidate = async (tripId,candidateId,token) => {
+    export const putDecideCandidate = async (tripId,candidateId,token) => {
         
         try {
             const headers = {
@@ -27,4 +27,3 @@ export default function Put() {
         }
 
     }
-}
