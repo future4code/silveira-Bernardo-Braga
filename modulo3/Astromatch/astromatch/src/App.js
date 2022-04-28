@@ -60,11 +60,8 @@ function App () {
 
 	const getProfileChoice = async() => {
 			const me = 'bernardo-silveira';
-		
 		try{
-			
 			const response = await axios.get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${me}/person`);
-			console.log(response.data);
 			setPerson(response.data.profile)
 			
 		}catch(err){
@@ -78,7 +75,6 @@ function App () {
 		try {
 			
 			const response = await axios.get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${me}/matches`)
-			console.log(response.data.matches);
 			setMatches(response.data.matches); 
 			
 
@@ -92,8 +88,6 @@ function App () {
 		try {
 		
 			const response = await axios.put(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${me}/clear`,'Content-Type: application/json')
-			console.log(response.data)
-			console.log('matches esta limpo')
 			 setMudaTela(false)
 		
 		} catch (err) {
@@ -102,17 +96,15 @@ function App () {
 		
 		}
 	}
-
 	
 	const onClickSee = (bool) => {
-		console.log('funcao onClickSee')
+		
 		setMudaTela(bool);
 		getMatches();
-		console.log('depois de getMatches')
+		
 	}
 
 	const seeMatches = matches.map((match => {
-		console.log(match)
 		return(
 			<ShowMatches
 				FotoMatch={match.photo}

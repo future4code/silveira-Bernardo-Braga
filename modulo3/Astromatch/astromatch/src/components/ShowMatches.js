@@ -27,7 +27,7 @@ const NameMatch = styled.div`
 
 export default function ShowMatches(props){
 // console.log('==============')
-console.log(props.FotoMatch)
+
 // console.log('==============')
     return (
         <MainContainer>

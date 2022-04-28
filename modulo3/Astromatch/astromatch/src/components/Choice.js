@@ -62,8 +62,6 @@ export default function Choice (props) {
 	}
 
     const doChoice = (id,choice) => {
-        console.log(`o ide é o: ${id} escolha: ${choice}`);
-
         postChoosePerson(id,choice);
         getProfileChoice();
 
