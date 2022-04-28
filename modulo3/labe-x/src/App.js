@@ -1,16 +1,15 @@
-import React from 'react';
-import styled from 'styled-components'
+import React, {useState, useEffect} from 'react';
+
+//import styled from 'styled-components'
 // import axios from 'axios';
 
-const MainContainer = styled.div`
+import Router from './routes/Router';
 
-`
-
-function App() {
+export default function App() {
   return (
-    <MainContainer>
-    </MainContainer>
+    <>
+      <Router/>
+    </>
   );
 }
 
-export default App;
