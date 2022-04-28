@@ -11,13 +11,9 @@ import {Button, ButtonContainer, Title } from '../Styles/styles'
 const MainContainer = styled.div` 
 
 `
-
-
 const HomePage = () =>{
 
     const navigate = useNavigate();
-
-
 
     return (
         <MainContainer>
