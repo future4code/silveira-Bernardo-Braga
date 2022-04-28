@@ -37,7 +37,7 @@
             this.getAllPlaylist();
         }
     
-        mudaTela = (nometela, ) => {
+        mudaTela = (nometela ) => {
             console.log('a tela vai mudar para: '+ nometela);
             this.setState({
                 telaAtual: nometela
@@ -45,24 +45,6 @@
         }
     
 
-        // escolherTela = () => {
-        //     switch (this.state.telaAtual) {
-        //         case 'primaria':
-        //             return
-        //         case 'addMusic':
-        //             return <AddMusic/>;
-        //         default:
-        //             return <MostraPlaylist/>;
-        //
-        //     }
-        // }
-        //
-        // mudaTela = (nometela) => {
-        //     this.setState({
-        //         telaAtual: nometela
-        //     })
-        // }
-        
         postCreatePlaylist = async () => {
             try{
                 const url = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists";
@@ -212,34 +194,14 @@
         }
         
         render (){
-            // console.log("=========state=============")
-            // console.log(this.state.playlist);
-            
 
-            // const listaPlalist = this.state.playlist.map((playlist) => {
-            //     return <div key={ this.state.playlist.id }> { playlist.name } </div>
-            // })
 
             return (
                 <>
                     { this.escolherTela() }
                 </>
                 
-                // <MainContainer>
-                //     <NameProjeto>Bernardo Labefy</NameProjeto>
-                //
-                //     <CriaPlaylist
-                //         nomePlaylist={this.state.name}
-                //         onChangeNome={this.onChangeNome}
-                //         postCreatePlaylist={this.postCreatePlaylist}
-                //     />
-                //     <MostraPlaylist
-                //         Playlist={ this.state.playlist }
-                //         MudaTela={this.mudaTela}
-                //         // TelaAtual={this.state.TelaAtual}
-                //     />
-                // </MainContainer>
-                //
+                
             );
         }
     }
