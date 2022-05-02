@@ -6,17 +6,26 @@ import axios from "axios";
     const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/${autorization}/`
     const header = 'Content-Type: application/json'
 
-    export const postLogin = async (email,password) => {
+    export const postLogin = async (email,password,setBool) => {
         try {
-            console.log(email);
-            console.log(password);
+
             const body = {
                 "email":email,
                 "password":password
             }
             const response = await axios.post(`${url}login`,body)
-            console.log(response.data);
-            localStorage.setItem("token", response.data.token)
+            console.log(response.data.success);
+            const res = response.data;
+            if (res.success == true){
+                console.log('deu certo');
+                localStorage.setItem("token", response.data.token)
+                setBool(true)
+               
+            }else{
+                console.log('acesso negado');
+                setBool(false)
+
+            }
 
         } catch (err) {
             console.log('deu erro');
@@ -61,18 +70,18 @@ import axios from "axios";
         }
     }
 
-    export const postSignup = async (email,password) => {
-        try {
+    // export const postSignup = async (email,password) => {
+    //     try {
 
-            const body = {
-                'email':email,
-                'password':password
-            }
-            const response = await axios.post(`${url}signup`,body,header)
+    //         const body = {
+    //             'email':email,
+    //             'password':password
+    //         }
+    //         const response = await axios.post(`${url}signup`,body,header)
 
-        } catch (err) {
-            console.log('deu erro');
-            console.log(err.message);
-        } 
-    }
+    //     } catch (err) {
+    //         console.log('deu erro');
+    //         console.log(err.message);
+    //     } 
+    // }
 

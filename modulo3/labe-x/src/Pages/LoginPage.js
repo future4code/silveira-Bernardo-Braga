@@ -18,7 +18,7 @@ const MainContainer = styled.div`
 ` 
 
 const LoginPage = () =>{
-    
+    const {bool, setBool} = useState(false);
     const navigate = useNavigate();
     const { form, onChange, cleanFields } = useForm({ email: "", password: "" });
     // const {email,setEmail} = useState("");
@@ -28,12 +28,12 @@ const LoginPage = () =>{
     const checkforLogin = (event) => {
         
         console.log(form);
+        postLogin(form.email,form.password,setBool)
 
-        postLogin(form.email,form.password);
-        console.log('passou ');
-        cleanFields();
-        console.log('passou aqui');
-        goToPage(navigate,'admHome');
+  
+            goToPage(navigate,'admHome');
+
+         
     }
 
     return (
