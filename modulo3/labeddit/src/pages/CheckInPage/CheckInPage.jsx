@@ -1,55 +1,47 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
 
+import { useForm } from '../../hooks/useForm'
 import { useGlobal } from '../../context/GlobalStateContext';
-import {useForm} from '../../hooks/useForm'
-
-import { goToPage } from '../../routes/coordinator'
-
-
+import { goToPage, goToHomePage } from '../../routes/coordinator'
 
 import { MainContainer,Form,Input,Button } from '../../styles/styled';
 
-export const HomePage = props => {
-
+export const CheckInPage = props => {
+    const {form,onChange,cleanField} = useForm({username:'', email:'', password:''})
+    const {request} = useGlobal()
     const navigate = useNavigate();
-    const {states,request} = useGlobal()
 
-    const {form,onChange,cleanField} = useForm({email:'',password:''})
 
-    const doLogin = e => {
+    const doCheckIn = e => {
         
         e.preventDefault()
-        request.postLogin(form)
+        request.postCheckIn(form)
 
         cleanField();
-        console.log(states.status);
-        if( states.status === true ) {
-            goToPage(navigate,'/feed')
-        } else {
-           console.log('e-mail ou senha incorretos')
-        }
-        
+        goToPage(navigate,'/feed')
 
     }
 
-
-
-
-
-
     return (
         <MainContainer>
-            <h1>Labeddit</h1>
-            <h3>O Projeto de rede social do Bernardo Braga</h3>
-                
-            <Form onSubmit={doLogin}  >
+            <Button onClick={() => { goToHomePage(navigate)} }>voltar</Button>
+            <h1> Ola, bem vindo ao LabEddit ;)</h1>
+            <Form onSubmit={doCheckIn}  >
                 <Input 
                     name="email"
                     value={form.email} 
                     onChange={ onChange }
                     placeholder={'digite o seu email'}
                     forHtml="email"
+                    required
+
+                /><Input 
+                    name="username"
+                    value={form.username} 
+                    onChange={ onChange }
+                    placeholder={'digite o seu nickname'}
+                    
                     required
 
                 />
@@ -61,9 +53,8 @@ export const HomePage = props => {
                     type="password"
                     required
                 />
-                <Button> Fazer Login</Button>
+                <Button> cadastrar</Button>
             </Form>
-            <Button onClick={() => { goToPage ( navigate,'/checkin' ) } } >Criar uma conta na Labeddit</Button>
         </MainContainer>
     );
 }
