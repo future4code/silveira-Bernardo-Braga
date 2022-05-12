@@ -11,32 +11,23 @@ import { goToPage } from '../../routes/coordinator'
 import { MainContainer,Form,Input,Button } from '../../styles/styled';
 
 export const HomePage = props => {
+    const {states,request} = useGlobal();
 
     const navigate = useNavigate();
-    const {states,request} = useGlobal()
+    
+
+    
 
     const {form,onChange,cleanField} = useForm({email:'',password:''})
 
     const doLogin = e => {
         
-        e.preventDefault()
-        request.postLogin(form)
+        e.preventDefault(true)
+        request.postLogin(form, navigate,'/feed')
 
         cleanField();
-        console.log(states.status);
-        if( states.status === true ) {
-            goToPage(navigate,'/feed')
-        } else {
-           console.log('e-mail ou senha incorretos')
-        }
         
-
     }
-
-
-
-
-
 
     return (
         <MainContainer>

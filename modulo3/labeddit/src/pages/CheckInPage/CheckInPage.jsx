@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React  from 'react';//{useState, useEffect}
 import { useNavigate } from "react-router-dom";
 
 import { useForm } from '../../hooks/useForm'
 import { useGlobal } from '../../context/GlobalStateContext';
-import { goToPage, goToHomePage } from '../../routes/coordinator'
+import { goToHomePage } from '../../routes/coordinator';  //goToPage, 
 
 import { MainContainer,Form,Input,Button } from '../../styles/styled';
 
@@ -16,10 +16,10 @@ export const CheckInPage = props => {
     const doCheckIn = e => {
         
         e.preventDefault()
-        request.postCheckIn(form)
+        request.postCheckIn(form,navigate,'/feed')
 
         cleanField();
-        goToPage(navigate,'/feed')
+       
 
     }
 

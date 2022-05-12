@@ -1,18 +1,33 @@
 import axios from 'axios'
 import { GlobalStateContext } from './GlobalStateContext'
 import React, { useState } from 'react'
+import { goToPage } from '../routes/coordinator';
+
 
 export default function GlobalState(props){
+
     const [name,setName] = useState('');
-    const [pasword,setPassword] = useState('');
+    const [password,setPassword] = useState('');
     const [status,setStatus] = useState(false)
+    const [postTitle, setPostTitle] = useState('')
+    const [postBody, setPostBody] = useState('')
+    const [post,setPost] = useState([])
+    const [postComment,setPostComment] = useState([])
+    
     
     
 //  https://labeddit.herokuapp.com
     const url = " https://labeddit.herokuapp.com"
+
     const header = 'Content-Type: application/json'
     
-    const postLogin = async (body) => {
+    const headers = {
+        headers: {
+            Authorization: localStorage.getItem('token')
+        }
+    }
+    
+    const postLogin = async (body, navigate, page) => {
 // body igual a {"email": "demo.email@gmail.com","password": "demo.password"}
         
         try {
@@ -20,14 +35,16 @@ export default function GlobalState(props){
             console.log('deu certo login');
             console.log(response.data);
             localStorage.setItem('token',response.data.token )
-            setStatus(true)
+            goToPage(navigate,page)
+            
         } catch (error) {
             console.log(error);
-            setStatus(false)
+            
         }
         
     }
-    const postCheckIn = async (body) => {
+
+    const postCheckIn = async (body, navigate, page) => {
 // body igual a {"username":"Demo","email": "demo.email@gmail.com","password": "demo.password"}
         console.log(body);
         try {
@@ -35,33 +52,43 @@ export default function GlobalState(props){
             console.log('deu certo checkin');
             console.log(response.data);
             localStorage.setItem('token',response.data.token )
-
-            return true
+            goToPage(navigate,page)
+            
         } catch (error) {
             console.log(error);
-            return false
+            
         }
         
     }
+
     const getPosts = async () => {
         try {
-            const header = {
-                Authorization: localStorage.getItem("token")
-            }
-            const response = await axios.get(`${url}/posts`, header)
-            console.log(response);
+            const token = localStorage.getItem("token")
+                const headers = {
+        headers: {
+            Authorization: token
+        }
+    }
+            // console.log(localStorage.getItem("token"))
+            const response = await axios.get(`${url}/posts`, headers)
+            console.log('get post deu certo');
+            console.log(response.data);
+            setPost(response.data)
+            // console.log(post);
+
 
         } catch (err) {
+            console.log('erro no getPosts');
             console.log(err);
         }
     }
+
     const getPostComments = async (id) => {
         try {
-            const header = {
-                Authorization: localStorage.getItem("token")
-            }
-            const response = await axios.get(`${url}/posts/${id}/comments`, header)
-            console.log(response);
+           
+            const response = await axios.get(`${url}/posts/${id}/comments`, headers)
+            console.log(response.data);
+            setPostComment(response.data)
 
         } catch (err) {
             console.log(err);
@@ -71,36 +98,31 @@ export default function GlobalState(props){
     const postCreatePost = async (body) => {
         //body tem que ser igual a {"title": "Primeiro","body": "post"}
         try {
-            const header = {
-                Authorization: localStorage.getItem("token")
-            }
-            const response = await axios.post(`${url}/posts`,body, header)
+            
+            const response = await axios.post(`${url}/posts`,body, headers)
             console.log(response);
 
         } catch (err) {
             console.log(err);
         }
     }
+
     const postCreateComment = async (id,body) => {
 // body igual a {"body": "Primeiro comentário"}
         try {
-            const header = {
-                Authorization: localStorage.getItem("token")
-            }
-            const response = await axios.post(`${url}/posts/${id}/comments`,body, header)
-            console.log(response);
+            const response = await axios.post(`${url}/posts/${id}/comments`,body, headers)
+            console.log(response.data);
+            setPostComment(...postComment, response.data)
 
         } catch (err) {
             console.log(err);
         }
     }
+
     const postCreatePostVote = async (id,body) => {
 // body igual a {"direction": 1}
         try {
-            const header = {
-                Authorization: localStorage.getItem("token")
-            }
-            const response = await axios.post(`${url}/posts/${id}/votes`,body, header)
+            const response = await axios.post(`${url}/posts/${id}/votes`,body, headers)
             console.log(response);
 
         } catch (err) {
@@ -111,60 +133,49 @@ export default function GlobalState(props){
     const postCreateCommentVote = async (id,body) => {
 //body igual a {"direction": 1}
         try {
-            const header = {
-                Authorization: localStorage.getItem("token")
-            }
-            const response = await axios.post(`${url}/comments/${id}/votes`,body, header)
+            const response = await axios.post(`${url}/comments/${id}/votes`,body, headers)
             console.log(response);
 
         } catch (err) {
             console.log(err);
         }
     }
+
     const putChangePostVote = async (id,body) => {
 //body igual a {"direction": 1}
         try {
-            const header = {
-                Authorization: localStorage.getItem("token")
-            }
-            const response = await axios.post(`${url}/posts/${id}/votes`,body, header)
+            const response = await axios.post(`${url}/posts/${id}/votes`,body, headers)
             console.log(response);
 
         } catch (err) {
             console.log(err);
         }
     }
+
     const putChangeCommentVote = async (id,body) => {
 //body igual a {"direction": 1}
         try {
-            const header = {
-                Authorization: localStorage.getItem("token")
-            }
-            const response = await axios.post(`${url}/comments/${id}/votes`,body, header)
+            const response = await axios.post(`${url}/comments/${id}/votes`,body, headers)
             console.log(response);
 
         } catch (err) {
             console.log(err);
         }
     }
+
     const delDeletePostVote = async (id) => {
         try {
-            const header = {
-                Authorization: localStorage.getItem("token")
-            }
-            const response = await axios.post(`${url}/posts/${id}/votes`, header)
+            const response = await axios.post(`${url}/posts/${id}/votes`, headers)
             console.log(response);
 
         } catch (err) {
             console.log(err);
         }
     }
+
     const delCommentVote = async (id) => {
         try {
-            const header = {
-                Authorization: localStorage.getItem("token")
-            }
-            const response = await axios.post(`${url}/comments/${id}/votes`, header)
+            const response = await axios.post(`${url}/comments/${id}/votes`,headers)
             console.log(response);
 
         } catch (err) {
@@ -173,8 +184,9 @@ export default function GlobalState(props){
     }
 
     
-    const states = {name, pasword, status}
-    const setters = {setName, setPassword, setStatus}
+    const states = {name, password, status, postTitle, postBody, post, postComment}
+
+    const setters = {setName, setPassword, setStatus, setPostTitle,setPostBody, setPost, setPostComment}
 
     const request = {getPosts, getPostComments, postLogin, postCheckIn, postCreatePost, postCreateComment, postCreatePostVote, postCreateCommentVote, putChangePostVote, putChangeCommentVote, delDeletePostVote, delCommentVote}
 
