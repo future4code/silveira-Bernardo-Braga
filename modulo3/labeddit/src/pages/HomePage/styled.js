@@ -2,9 +2,9 @@
 import styled from "styled-components";
 
 
-export const Form = styled.form `  `
-export const Input = styled.input `  `
+export const UnderTitle = styled.h3 `  `
 
+export const Title = styled.h1 `  `
 
 
 

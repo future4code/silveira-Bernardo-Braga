@@ -14,6 +14,9 @@ export default function GlobalState(props){
     const [post,setPost] = useState([])
     const [postComment,setPostComment] = useState([])
     
+    const [votePost,setVotePost] = useState(0)
+
+    
     
     
 //  https://labeddit.herokuapp.com
@@ -32,9 +35,9 @@ export default function GlobalState(props){
         
         try {
             const response = await axios.post(`${url}/users/login`,body,header)
-            console.log('deu certo login');
+            // console.log('deu certo login');
             console.log(response.data);
-            localStorage.setItem('token',response.data.token )
+            // localStorage.setItem('token',response.data.token )
             goToPage(navigate,page)
             
         } catch (error) {
@@ -71,8 +74,8 @@ export default function GlobalState(props){
     }
             // console.log(localStorage.getItem("token"))
             const response = await axios.get(`${url}/posts`, headers)
-            console.log('get post deu certo');
-            console.log(response.data);
+            // console.log('get post deu certo');
+            // console.log(response.data);
             setPost(response.data)
             // console.log(post);
 
@@ -124,6 +127,7 @@ export default function GlobalState(props){
         try {
             const response = await axios.post(`${url}/posts/${id}/votes`,body, headers)
             console.log(response);
+            // setVotePost(votePost + 1)
 
         } catch (err) {
             console.log(err);
@@ -135,6 +139,7 @@ export default function GlobalState(props){
         try {
             const response = await axios.post(`${url}/comments/${id}/votes`,body, headers)
             console.log(response);
+            // setVotePost(votePost + 1)
 
         } catch (err) {
             console.log(err);
@@ -184,9 +189,9 @@ export default function GlobalState(props){
     }
 
     
-    const states = {name, password, status, postTitle, postBody, post, postComment}
+    const states = {name, password, status, postTitle, postBody, post, postComment, votePost}
 
-    const setters = {setName, setPassword, setStatus, setPostTitle,setPostBody, setPost, setPostComment}
+    const setters = {setName, setPassword, setStatus, setPostTitle,setPostBody, setPost, setPostComment, setVotePost}
 
     const request = {getPosts, getPostComments, postLogin, postCheckIn, postCreatePost, postCreateComment, postCreatePostVote, postCreateCommentVote, putChangePostVote, putChangeCommentVote, delDeletePostVote, delCommentVote}
 

@@ -9,6 +9,7 @@ import { goToPage } from '../../routes/coordinator'
 
 
 import { MainContainer,Form,Input,Button } from '../../styles/styled';
+import { UnderTitle,Title } from './styled';
 
 export const HomePage = props => {
     const {states,request} = useGlobal();
@@ -31,8 +32,8 @@ export const HomePage = props => {
 
     return (
         <MainContainer>
-            <h1>Labeddit</h1>
-            <h3>O Projeto de rede social do Bernardo Braga</h3>
+            <Title>Labeddit</Title>
+            <UnderTitle>O Projeto de rede social do Bernardo Braga</UnderTitle>
                 
             <Form onSubmit={doLogin}  >
                 <Input 

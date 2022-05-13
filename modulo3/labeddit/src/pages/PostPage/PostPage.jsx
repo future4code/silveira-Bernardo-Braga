@@ -38,7 +38,8 @@ console.log(states.postComment);
     const comment = states.postComment && states.postComment.map( (post) => { 
         return(
             <Posts key={post.id}
-            Post={post}
+                Post={post}
+                Where = 'postComment'
             
             />
         )

@@ -8,20 +8,49 @@ export const GlobalStyled = createGlobalStyle`
         width: 100%;
     }
 `
+
 export const MainContainer = styled.div`
-    background: greenyellow;
+    /* background: greenyellow; */
 
     height: 100%;
     width: 100%;
+
     display:flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 `
-export const Form = styled.form `  `
-export const Input = styled.input `  `
-export const Button = styled.button `  `
+export const Form = styled.form ` 
+
+    height: 100%;
+    width: 100%;
+
+    margin-top: 11px;
+    /* background: blue; */
+   
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+`
+
+export const Input = styled.input ` 
+    
+    margin-bottom:5px;
+    
+    width: 70%;
+`
+
+export const Button = styled.button `  
+
+    margin-top:20px;
+    border-radius: 6px;
+
+    background-image: linear-gradient(to right, orange, yellow );
+`
+
 export const Headers = styled.div `  `
+
+
 export const AddCommitContainer = styled.div ` 
 
     height: 100%;
@@ -47,5 +76,6 @@ export const CommitContainer = styled.div `
     margin-right: 3px;
 
 `
+
 
 

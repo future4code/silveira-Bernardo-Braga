@@ -19,7 +19,6 @@ export const FeedPage = props => {
     const navigate = useNavigate();
 
   
-
     useEffect( () => {request.getPosts()} , [])
 
 
@@ -27,11 +26,14 @@ export const FeedPage = props => {
       console.log(form);
         request.postCreatePost(form);
     }
+
     const post = states.post && states.post.map( (post) => {
+        
         return(
             <Posts key={post.id}
                 status={true}
                 Post={post}
+                Where='feed'
             />
         )
     } )
