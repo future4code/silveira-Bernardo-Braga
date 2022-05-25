@@ -11,14 +11,15 @@ console.log(checaTriangulo(5,3,3));
 console.log(checaTriangulo(3,3,3));
 // ==========================  2   =====================
 
-// function imprimeTresCoresFavoritas (  ) :void  {
-//    let cor1:string =''
-//    cor1 = prompt("Insira sua primeira cor favorita")
-//    let cor2:string = prompt("Insira sua segunda cor favorita")
-//    let cor3:string = prompt("Insira sua terceira cor favorita")
-//    console.log([cor1, cor2, cor3])
-// }
-// imprimeTresCoresFavoritas()
+function imprimeTresCoresFavoritas (  ) :void  {
+   let cor1:string = process.argv[2]
+   let cor2:string = process.argv[3]
+   let cor3:string = process.argv[4]
+   console.log([cor1, cor2, cor3])
+}
+console.log('-----------------------');
+imprimeTresCoresFavoritas()
+console.log('-----------------------');
 
 // ==========================  3   =====================
 
@@ -49,26 +50,29 @@ function comparaDoisNumeros(num1:number, num2:number):number {
 
   return diferenca 
 }
-console.log(comparaDoisNumeros(900,400));
+console.log(comparaDoisNumeros(900,400)); 
 
 // ==========================  5   =====================
 
-// function checaRenovacaoRG():boolean {
-//    const anoAtual:number = Number(prompt("Digite o ano atual"))
-//    const anoNascimento:number = Number(prompt("Digite o ano de nascimento"))
-//    const anoEmissao:number = Number(prompt("Digite o ano de emissão do documento"))
+function checaRenovacaoRG():boolean {
 
-//    const idade:number = anoAtual - anoNascimento
-//    const tempoCarteira:number = anoAtual - anoEmissao
+   const anoAtual:number = Number(process.argv[5])
+   const anoNascimento:number = Number(process.argv[6])
+   const anoEmissao:number = Number(process.argv[7])
 
-//    const cond1:boolean = idade <= 20 && tempoCarteira >= 5
-//    const cond2:boolean = idade > 20 && idade <= 50 && tempoCarteira >= 10
-//    const cond3:boolean = idade > 50 && tempoCarteira >= 15
+   const idade:number = anoAtual - anoNascimento
+   const tempoCarteira:number = anoAtual - anoEmissao
 
-//    return (cond1 || cond2 || cond3)
-// }
+   const cond1:boolean = idade <= 20 && tempoCarteira >= 5
+   const cond2:boolean = idade > 20 && idade <= 50 && tempoCarteira >= 10
+   const cond3:boolean = idade > 50 && tempoCarteira >= 15
 
-// console.log(checaRenovacaoRG())
+   return (cond1 || cond2 || cond3)
+}
+
+console.log("=========");
+console.log(checaRenovacaoRG())
+console.log("=========");
 
 // ==========================  desafio   =====================
 
