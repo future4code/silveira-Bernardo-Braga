@@ -1,13 +1,26 @@
 import React from "react";
-import { Router } from "react-router-dom";
+// <<<<<<< HEAD
+// import { Router } from "react-router-dom";
+// import GlobalState from './context/GlobalState';
+
+// export function App() {
+//   return (
+//     <>
+//         <GlobalState>
+// 			<Router/>
+// 		</GlobalState>
+// =======
+import Router from './routes/Router';
+
 import GlobalState from './context/GlobalState';
 
-export function App() {
+export default function App() {
   return (
     <>
-        <GlobalState>
-			<Router/>
-		</GlobalState>
+      <GlobalState>
+			  <Router/>
+		  </GlobalState>
+{/* >>>>>>> master */}
     </>
   );
 }
