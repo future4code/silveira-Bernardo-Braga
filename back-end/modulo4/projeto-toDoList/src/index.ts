@@ -1,7 +1,10 @@
 import express, { Express } from "express";
 import cors from "cors";
-import postUser from "./endpoints/post/postUser";
+import postCreateUser from "./endpoints/post/postCreateUser";
 import getUserById from "./endpoints/get/getUserById";
+import getTaskById from "./endpoints/get/getTaskById";
+import putEditUser from "./endpoints/put/putEditUser";
+import postCreateTask from "./endpoints/post/postCreateTask";
 
 
 const app: Express = express();
@@ -19,9 +22,16 @@ app.use(cors());
 // Os status das tarefas são 3: to do ("a fazer"), doing("fazendo") e done("feita").
 
 // 1. Criar usuário
-app.post('/user', postUser)
+
+app.post('/user', postCreateUser)
 app.get('/user/:id', getUserById)
-app.put('/user/edit/:id',)
+app.post('/task', postCreateTask)
+app.get('/task/:id', getTaskById)  // 
+app.put('/user/edit/:id', putEditUser)
+
+
+
+
 
 const server = app.listen(3003, () => {
     console.log(`Server is running in http://localhost:3003`);

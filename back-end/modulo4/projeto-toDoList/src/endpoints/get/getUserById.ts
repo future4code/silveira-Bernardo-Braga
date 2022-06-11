@@ -1,4 +1,5 @@
 import { Response, Request } from 'express'
+import connection from '../../data/connection'
 
 export default async function getUserById(req: Request, res: Response) {
 
@@ -11,10 +12,10 @@ export default async function getUserById(req: Request, res: Response) {
         }
 
         // fazer um select para encontrar o id correspondente no banco de dados ,
-        // const resposta = await ...
+        const resposta = await connection("TodoListUser").where({ id: Number(req.params.id) })
 
-        // res.status(200).send(resposta)
-        res.status(200).send('to vivo')
+        res.status(200).send(resposta)
+        // res.status(200).send('to vivo')
     } catch (err: any) {
         res.status(400).send({ message: err.message || err.sqlMessage })
     }
