@@ -1,0 +1,21 @@
+
+
+
+
+GET http://localhost:3003/exercicio1
+Content-Type: application/json
+
+
+GET http://localhost:3003/exercicio2
+Content-Type: application/json
+
+
+# {
+#     "id": 21,
+#     "name": "Aline",
+#     "email": "aline@labenu",
+#     "type": "CX"
+#   },
+
+
+
