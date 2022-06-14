@@ -2,11 +2,11 @@
 
 
 
-GET http://localhost:3003/exercicio1
-Content-Type: application/json
+# GET http://localhost:3003/exercicio1
+# Content-Type: application/json
 
 
-GET http://localhost:3003/exercicio2
+GET http://localhost:3003/exercicio2/ASC
 Content-Type: application/json
 
 
