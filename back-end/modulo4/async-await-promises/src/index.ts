@@ -4,7 +4,11 @@ import axios from 'axios'
 
 
 
-
+type user = {
+    id: string;
+    name: string;
+    email: string;
+}
 
 
 
@@ -28,12 +32,29 @@ const main2 = async (): Promise<any> => {
 
     console.log('passou aqui');
     const response = await axios.get('https://labenews.herokuapp.com/subscribers')
-    return response.data
+    const resposta = response.data.map((res: any) => {
+        return {
+            id: res.id,
+            name: res.name,
+            email: res.email,
+        };
+    })
+    return resposta
 
+}
+
+async function main3(title: string, content: string, date: number): Promise<void> {
+
+    await axios.put('https://labenews.herokuapp.com/news', {
+        title: title,
+        content: content,
+        date: date
+    });
 }
 
 
 main()
+main2()
 
 
 
