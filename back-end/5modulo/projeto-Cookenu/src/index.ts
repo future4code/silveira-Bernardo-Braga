@@ -1,11 +1,20 @@
+import { hashManager } from './services/hashes';
 // import { dotenv } from 'dotenv';
 import app from './app'
+
 import { signup } from './endpoints/signup'
+import { getUser } from './endpoints/getUser';
+import { Login } from './endpoints/Login';
+import { getUserByToken } from './endpoints/UserByToken';
+// import { getUser } from './endpoints/getUser';
+
+
 import dotenv from 'dotenv'
 import { IdGenerator } from './services/generateId';
 import { authenticationData } from './types';
 import { Authenticator } from './services/token';
-import { getUser } from './endpoints/getUser';
+
+
 dotenv.config()
 
 // cadastro => só precisa informar: o e-mail, nome a sua senha para realizar o cadastro. A senha tem uma regra: ela deve conter, no mínimo, 6 caracteres.
@@ -37,10 +46,20 @@ dotenv.config()
 // console.log('================');
 
 console.log('bernardo ==========================================');
+
 app.post('/signup', signup);
+app.get('/user', getUser)
+app.post('/login', Login)
 
-app.get('/user', getUser) // getUser
+app.get('/user/profile', getUserByToken)
+app.get('/user/:id',)
 
+
+
+
+
+// token de controle
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJhNTQ4YTJlLTA4NDktNDUyNy05N2YzLWRlNDE1ZGU3MTNmNyIsInJvbGUiOiJub3JtYSIsImlhdCI6MTY1NjcwMDIxMywiZXhwIjoxNjU3MzU1NDEzfQ.- F9Vms1dqfp25 - YBaAYZSFx3orhW8kAD_W0AziswV0A
 
 
 

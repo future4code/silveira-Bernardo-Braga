@@ -1,9 +1,10 @@
 
-import { Response } from 'express';
+// import { Response } from 'express';
 import { UserDataBase } from '../data/UserDataBase';
+import { Request, Response } from 'express'
 
 
-export async function getUser(req: Request, res: Response) {
+export async function getUser(req: Request, res: Response): Promise<any> {
 
     try {
         console.log('berardo ==-=-=-=-=-=-=');

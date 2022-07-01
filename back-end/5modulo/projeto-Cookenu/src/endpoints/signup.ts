@@ -3,6 +3,7 @@ import { UserDataBase } from './../data/UserDataBase';
 import { IdGenerator } from './../services/generateId';
 import { Response, Request } from 'express';
 import { authenticationData } from '../types';
+import { hashManager } from '../services/hashes';
 
 export async function signup(req: Request, res: Response) {
 
@@ -28,12 +29,15 @@ export async function signup(req: Request, res: Response) {
         console.log('================');
         const userDB = new UserDataBase()
 
-        userDB.createUser(id, name, email, password, token, role)
+        const novaSenha = new hashManager()
+        const senha = await novaSenha.hash(password)
+        console.log(senha);
+        await userDB.createUser(id, name, email, String(senha), token, role)
+        // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIxYWIxMjczLTg3YTItNDM1Ni1hZDljLTMyNjU1MGYyNGUzZSIsInJvbGUiOiJub3JtYSIsImlhdCI6MTY1NjY5ODcxMSwiZXhwIjoxNjU3MzUzOTExfQ.HW7BewhMyjbbQIHd1VgxP1IFmHPA6l9Rd7EgvjoM0-k
 
 
 
-
-        res.status(200).send('user criado')
+        res.status(200).send({ "token": token })
     } catch (err: any) {
         res.status(400).send({ message: err.message || err.sqlMessage })
     }
