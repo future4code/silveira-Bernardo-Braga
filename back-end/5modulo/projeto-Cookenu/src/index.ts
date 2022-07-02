@@ -1,5 +1,3 @@
-import { hashManager } from './services/hashes';
-// import { dotenv } from 'dotenv';
 import app from './app'
 
 import { signup } from './endpoints/signup'
@@ -10,9 +8,6 @@ import { getUserByToken } from './endpoints/UserByToken';
 
 
 import dotenv from 'dotenv'
-import { IdGenerator } from './services/generateId';
-import { authenticationData } from './types';
-import { Authenticator } from './services/token';
 
 
 dotenv.config()
@@ -51,8 +46,10 @@ app.post('/signup', signup);
 app.get('/user', getUser)
 app.post('/login', Login)
 
+app.post('/recipe', Login)
+
 app.get('/user/profile', getUserByToken)
-app.get('/user/:id',)
+app.get('/user/:id', getUserByToken)
 
 
 

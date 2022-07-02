@@ -1,6 +1,6 @@
 import { IdGenerator } from './../services/generateId';
-import { Request, Response } from "express";
 import { UserDataBase } from '../data/UserDataBase';
+import { Request, Response } from "express";
 
 export async function getOtherUser(req: Request, res: Response) {
 
