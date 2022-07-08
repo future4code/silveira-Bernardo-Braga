@@ -17,4 +17,15 @@ CREATE TABLE
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         author_id VARCHAR(255),
         FOREIGN KEY (author_id) REFERENCES Labook_users (id)
-    )
+    );
+
+CREATE TABLE
+    IF NOT EXISTS Amizade (
+        id_eu varchar(300),
+        id_amigo varchar(300),
+        primary key (id_eu, id_amigo),
+        foreign key (id_eu) references Labook_users (id),
+        foreign key (id_amigo) references Labook_users (id)
+    );
+
+Drop Table Amizade;

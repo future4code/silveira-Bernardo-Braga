@@ -11,8 +11,8 @@ POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-    "name":"BernardoBraga",
-    "email":"bernar.sbraga@yahoo.com",
+    "name":"Berna",
+    "email":"bernar.ga@yahoo.com",
     "password":"palmeiras"
 }
 
