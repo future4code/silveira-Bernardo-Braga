@@ -1,5 +1,25 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+POR FAVOR, EDITE ESSA MENSAGEM INSERINDO AS INFORMAÇÕES DO SEU PROJETO. COMECE APAGANDO ESSA LINHA.
 
+INSIRA O NOME NOME DO PROJETO AQUI
+ESTADOS-INSTA4
+
+O que funciona
+ESTA TUDO FIUNCIONANDO NO PROJETO
+
+O que não funciona
+TUDO FUNCIONA
+
+Link Surge
+exemplos-listas-estado-forked.zip
+
+violent-passenger.surge.sh
+https://codesandbox.io/s/exemplos-listas-estado-forked-px2n36?file=/src/index.js
+
+Imagens
+TIRE PRINTS DAS TELAS DO SEU SITE E COLE AQUI
+
+Screenshot_19
 ## Available Scripts
 
 In the project directory, you can run:
