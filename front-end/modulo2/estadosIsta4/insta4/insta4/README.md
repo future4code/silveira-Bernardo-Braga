@@ -11,15 +11,14 @@ O que não funciona
 TUDO FUNCIONA
 
 Link Surge
-exemplos-listas-estado-forked.zip
+[exemplos-listas-estado-forked.zip](https://violent-passenger.surge.sh/)
 
-violent-passenger.surge.sh
+
 https://codesandbox.io/s/exemplos-listas-estado-forked-px2n36?file=/src/index.js
 
-Imagens
-TIRE PRINTS DAS TELAS DO SEU SITE E COLE AQUI
 
-Screenshot_19
+
+
 ## Available Scripts
 
 In the project directory, you can run:
