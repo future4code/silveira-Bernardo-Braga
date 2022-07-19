@@ -32,8 +32,28 @@ export default class UserData {
     public async GetUserInfo() {
         try {
             const result = await connection(TABLE)
-
+            console.log(result);
             return result
+
+        } catch (error: any) {
+            throw new Error(error.sqlMessage || error.message)
+        }
+    }
+
+    public async GetUserById(id: string) {
+        try {
+
+            const result = await connection(TABLE).where({ id: id })
+            return result
+
+        } catch (error: any) {
+            throw new Error(error.sqlMessage || error.message)
+        }
+    }
+
+    public async DeleteUserById(id: string) {
+        try {
+            await connection(TABLE).where({ id: id }).delete()
 
         } catch (error: any) {
             throw new Error(error.sqlMessage || error.message)

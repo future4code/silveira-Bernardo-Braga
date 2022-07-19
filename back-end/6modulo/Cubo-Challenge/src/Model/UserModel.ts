@@ -5,8 +5,8 @@ export default class UserModel {
         private id: string,
         private firstName: string,
         private lastName: string,
-        private participation: number,
-        private percent: number
+        public participation: number,
+        public percent: number
     ) { }
 
     public getPercent(): number { return this.percent; }

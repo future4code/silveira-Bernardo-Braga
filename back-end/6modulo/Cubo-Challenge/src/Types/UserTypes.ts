@@ -4,3 +4,9 @@ export type User = {
     lastName: string,
     participation: number
 }
+export type UserName = {
+    firstName: string,
+    lastName: string,
+    id: string
+    // participation: number
+}

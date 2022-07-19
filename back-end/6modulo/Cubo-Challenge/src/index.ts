@@ -11,6 +11,8 @@ app.post('/user', userController.PostParticipation)
 
 app.get('/user', userController.GetUserInfo)
 
+app.delete('/user', userController.DeleteUser)
+
 
 
 
