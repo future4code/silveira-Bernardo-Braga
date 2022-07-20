@@ -8,7 +8,7 @@ export default function Header (){
     // const { states, setters } = useContext(GlobalStateContext)
 
     const {requests} = useGlobal();
-    console.log(requests);
+    
     const {form,onChange,cleanField} = useForm({firstName:'',lastName:'',participation:''})
     
     const doLogin = async e => {

@@ -25,7 +25,7 @@ export default function GlobalState(props) {
 				"participation":"510"
 			}
 		**/
-		console.log(body);
+		
 		try {
 			const response = await  axios.post(`${URL}/user`, body, header)
 			console.log(response.data);
@@ -36,6 +36,7 @@ export default function GlobalState(props) {
         }
 		
 	};
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const getUser = async () => {
 		
 		try {
@@ -49,15 +50,14 @@ export default function GlobalState(props) {
         }
 		
 	};
-	const deleteUser = async (body) => {
-		/**
-		 	body igual a 
-			{
-				"id":"0594a520-a940-431c-b8b4-57dce76867df",
+	const deleteUser = async () => {
+		
+		 	const body= {
+				"id":"b3a55942-6825-4f87-9144-87e1cca39052",
 				"firstName":"spedro",
 				"lastName":"the ksin"
 			}
-		*/
+		
 		try {
 			const response = await  axios.get(`${URL}/user`, body, header)
 			console.log(response.data);
@@ -70,9 +70,9 @@ export default function GlobalState(props) {
 		
 	};
     
-	useEffect(() => {postUser()},[])
-    const states = { firstName, lastName, partipation,}
-	const setters = {setFirstName,setLastName,setPartipation}
+	useEffect(() => {getUser()},[])
+    const states = { firstName, lastName, partipation,user}
+	const setters = {setFirstName,setLastName,setPartipation,setUser}
 	const requests = {postUser,getUser,deleteUser}
 	const func = {}
 	
