@@ -2,7 +2,7 @@
 
 
 
-export const url = 'https://projetocubo.herokuapp.com'
+export const URL = 'https://projetocubo.herokuapp.com'
 
 
 

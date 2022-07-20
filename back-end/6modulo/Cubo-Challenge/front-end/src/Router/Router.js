@@ -7,9 +7,9 @@ import MainPage from '../Pages/MainPage';
 export default function Router()  {
     return (
         <BrowserRouter>
-         <Routes>
-            <Route index element={< MainPage/>} />
-         </Routes>
+            <Routes>
+                <Route index element={< MainPage/>} />
+            </Routes>
         </BrowserRouter>
     )
 }
