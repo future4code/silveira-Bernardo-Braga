@@ -1,14 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
-import Header from '../Components/Header/Header';
-import { MainContainer } from './Styled';
+import React, { useContext } from "react";
+import Header from "../Components/Header/Header";
+import Table from "../Components/Table/Table";
+import { useGlobal } from "../Global/GlobalStateContext";
+import { MainContainer } from "./Styled";
 
+export default function MainPage() {
+  const { states } = useGlobal();
 
-export default function MainPage(){
-
-    return(
-        <MainContainer>
-            <Header/>
-            bernardo
-        </MainContainer>
-    )
+  return (
+    <MainContainer>
+      <Header />
+      <Table />
+    </MainContainer>
+  );
 }
