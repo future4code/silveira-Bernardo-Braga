@@ -86,31 +86,20 @@ export default class UserBusiness {
 
     }
 
-    public async DeleteUser(userName: UserName) {
+    public async DeleteUser(id: string) {
 
-        const { id, firstName, lastName } = userName
-
-        if (!firstName || !lastName || !id) {
+        if (!id) {
             throw new DeleteError('erro, esta faltando alguma coisa no delete firstName, lastName')
         }
-
         const userDB = new UserData()
-        console.log('===========');
-
         const user = await userDB.GetUserById(id)
 
-        if (!user) {
+        if (user.length === 0) {
             throw new DeleteError('usuario nao cadastrado')
         }
 
         await userDB.DeleteUserById(id)
 
         return
-
-
-
     }
-
-
-
 }

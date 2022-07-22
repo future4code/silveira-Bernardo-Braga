@@ -48,18 +48,14 @@ export default class UserController {
 
         try {
 
-            const { id, firstName, lastName } = req.body
+            const id = req.params.id
 
-            const userName: UserName = {
-                firstName,
-                lastName,
-                id
-            }
+
             const userBusiness = new UserBusiness()
 
-            await userBusiness.DeleteUser(userName)
+            await userBusiness.DeleteUser(String(id))
 
-            res.status(200).send('deletado com sucesso')
+            res.status(200).send('user deletado com sucesso')
 
         } catch (err: any) {
             res.status(500).send({ message: err.message || err.sqlMessage })

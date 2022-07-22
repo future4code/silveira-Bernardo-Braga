@@ -50,7 +50,6 @@ export default class UserData {
             throw new Error(error.sqlMessage || error.message)
         }
     }
-
     public async DeleteUserById(id: string) {
         try {
             await connection(TABLE).where({ id: id }).delete()

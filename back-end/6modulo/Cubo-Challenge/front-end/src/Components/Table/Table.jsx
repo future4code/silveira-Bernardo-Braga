@@ -9,7 +9,7 @@ export default function Table() {
     const { states } = useGlobal();
 
 
-    console.log(states.user)
+    // console.log(states.user)
 
 
 
@@ -18,7 +18,7 @@ export default function Table() {
         // console.log(user)
         return (
 
-            <ShowInfoUser User={user} />
+            <ShowInfoUser User={user} key={user.id} />
 
         )
     })

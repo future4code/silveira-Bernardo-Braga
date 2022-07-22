@@ -43,7 +43,7 @@ export default function GraficoInfo() {
       })
     : [];
 
-  console.log("=====================GraficoInfo==============================");
+  // console.log("=====================GraficoInfo==============================");
 
   return (
     <MainGrafico>

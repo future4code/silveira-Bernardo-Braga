@@ -44,10 +44,11 @@ export default function GlobalState(props) {
     //   firstName: "spedro",
     //   lastName: "the ksin",
     // };
+    console.log(body);
 
     try {
-      const response = await axios.get(`${URL}/user`, body, header);
-      console.log(response.data);
+      const response = await axios.delete(`${URL}/user`, body);
+      console.log(response);
     } catch (error) {
       console.log(error);
     }

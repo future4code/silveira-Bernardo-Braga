@@ -6,3 +6,4 @@ export const MainShowTable = styled.tr`
 `;
 
 export const MainGrafico = styled.div``;
+export const Delete = styled.button``;
