@@ -54,7 +54,6 @@ export default function GraficoInfo() {
         options={options}
         data={[["Name", "Participation"], ...InfoUser]} //
       />
-      beranrdo test
     </MainGrafico>
   );
 }

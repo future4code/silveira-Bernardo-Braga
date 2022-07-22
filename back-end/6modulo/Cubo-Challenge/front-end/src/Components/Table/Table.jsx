@@ -1,8 +1,9 @@
 import { convertLength } from "@mui/material/styles/cssUtils";
 import { useGlobal } from "../../Global/GlobalStateContext";
+import { MainContainer } from "../../Pages/Styled";
 import GraficoInfo from "./GraficoInfo";
 import ShowInfoUser from "./ShowInfoUser";
-import { MainTable } from "./StyledTable";
+import { Main, MainTable, Tabela, Tbody, Th, Thead, Tr } from "./StyledTable";
 
 
 export default function Table() {
@@ -24,37 +25,42 @@ export default function Table() {
     })
 
     return (
-        <MainTable>
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            first_name
-                        </th>
+        <Main>
+            <h1>
+                Cubo-Challenge, Bernardo Braga
+            </h1>
+            <p>Favor inserir no formulário o seu nome o sobrenome e a quantidade de participação que vc contribuiu</p>
+            <MainTable>
 
-                        <th>
-                            last_name
-                        </th>
-                        <th>
-                            participation
-                        </th>
-                        <th>
-                            percent
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        states.user && mostraInfoUser
-                    }
-                </tbody>
-            </table>
+                <Tabela>
+                    <Thead>
+                        <Tr>
+                            <Th>
+                                first_name
+                            </Th>
 
-            <GraficoInfo />
+                            <Th>
+                                last_name
+                            </Th>
+                            <Th>
+                                participation
+                            </Th>
+                            <Th>
+                                percent
+                            </Th>
+                        </Tr>
+                    </Thead>
+                    <Tbody>
+                        {
+                            states.user && mostraInfoUser
+                        }
+                    </Tbody>
+                </Tabela>
 
+                <GraficoInfo />
 
-
-        </MainTable>
+            </MainTable>
+        </Main>
     )
 }
 
