@@ -1,0 +1,20 @@
+
+# ### Variables 
+# @url = http://localhost:3003
+
+
+# #
+
+### Post 
+
+POST http://localhost:3003/user/signup 
+Content-Type: application/json
+
+{
+    "name":"Berna",
+    "email":"bernar.ga@yahoo.com",
+    "password":"palmeiras"
+}
+
+###
+
