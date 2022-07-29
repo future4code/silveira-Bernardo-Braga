@@ -6,6 +6,7 @@ import { A, MainHistory } from "./StyledH";
 export default function ShowHistory(props) {
 
 
+
     const login = props.Item.login
     const url = props.Item.url
     console.log(url);
