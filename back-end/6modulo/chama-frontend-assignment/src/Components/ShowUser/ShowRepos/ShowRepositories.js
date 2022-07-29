@@ -12,7 +12,10 @@ export default function ShowRepositories(props) {
     return (
         <MainShowRepo>
 
-            <P>{repo.name}</P>
+            <a href={repo.url}>{repo.name}</a>
+            <P>description: {repo.description}</P>
+            <P>{repo.language}</P>
+            <P>Stars: {repo.stargazers_count}</P>
         </MainShowRepo>
     )
 }

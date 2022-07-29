@@ -1,10 +1,10 @@
 
-export const goToPage = (navigate, pageIndex) => {    
-    navigate(pageIndex); 
+export const goToPage = (navigate, pageIndex) => {
+    navigate(pageIndex);
 }
 
 export const goToHomePage = (navigate) => {
-    navigate('/home');
+    navigate('/');
 }
 
 export const goBack = (navigate) => {

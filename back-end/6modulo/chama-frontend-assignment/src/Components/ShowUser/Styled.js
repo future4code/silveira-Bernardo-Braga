@@ -14,7 +14,7 @@ export const Repositories = styled.div`
     
     height: 100%;
     width: 50%;
-
+    margin-left: 10px;
     display: flex;
     
     flex-direction: column;
