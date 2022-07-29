@@ -14,7 +14,7 @@ export default function ShowUser() {
 
     const mostraRepo = repo && repo.map((repo) => {
         // console.log(repo);
-        return <ShowRepositories repo={repo} />
+        return <ShowRepositories repo={repo} key={repo.name} />
 
     })
 

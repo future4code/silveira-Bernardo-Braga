@@ -7,7 +7,7 @@ export default function ShowRepositories(props) {
     // console.log(props);
     const repo = props.repo
 
-    console.log(repo);
+
 
     return (
         <MainShowRepo>
