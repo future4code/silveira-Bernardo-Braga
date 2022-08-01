@@ -1,0 +1,22 @@
+#
+
+### Variables 
+@apiurl = http://localhost:3003
+
+
+
+### POST User
+POST {{apiurl}}/user 
+
+Content-Type: application/json
+# Authorization: Bearer ACCESS-TOKEN
+
+{
+    "firstName":"peddro",
+    "lastName":"the kin",
+    "participation":"50"
+}
+
+### GET all users
+
+GET {{apiurl}}/user HTTP/1.1
