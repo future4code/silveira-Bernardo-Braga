@@ -19,6 +19,9 @@ export default function MegaSena() {
     //     return (<p>{states.loteria[0].name}</p>)
     // }
 
+
+    // falta criar as paginas dos outros sorteios 
+
     return (
         <MainContainerU>
             <ContainerMS>
