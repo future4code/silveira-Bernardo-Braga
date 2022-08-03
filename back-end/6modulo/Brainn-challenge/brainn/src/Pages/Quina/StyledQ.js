@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ContainerMS = styled.div`
+export const ContainerQ = styled.div`
 
     position: absolute;
     left: 0%;
@@ -8,7 +8,6 @@ export const ContainerMS = styled.div`
     top: 0%;
     bottom: 0%;
 
-    background: #6BEFA3;
+    background:#8666EF;
 
 `
-

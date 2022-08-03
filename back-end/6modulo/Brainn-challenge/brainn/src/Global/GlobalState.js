@@ -91,7 +91,7 @@ export default function GlobalState(props) {
     }
 
     const getConcursosById = async (id) => {
-        console.log(id);
+        // console.log(id);
         try {
 
             const response = await axios.get(`${URL}/concursos/${id}`)

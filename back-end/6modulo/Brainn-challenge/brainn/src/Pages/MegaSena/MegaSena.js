@@ -9,18 +9,7 @@ import { ContainerMS } from "./StyledMS";
 export default function MegaSena() {
     const { states, requests } = useGlobal();
 
-    console.log(states);
-
-    // useEffect(())
-
-    // console.log(states.loteria);
-    // const Nome = () => {
-    //     console.log(states.loteria[0]);
-    //     return (<p>{states.loteria[0].name}</p>)
-    // }
-
-
-    // falta criar as paginas dos outros sorteios 
+    // console.log(states);
 
     return (
         <MainContainerU>
@@ -38,7 +27,7 @@ export default function MegaSena() {
 
             </ContainerMS>
 
-            {states.concursosById && states && <ShowBall Id={0} />}
+            {states.concursosById && states && states.loteriaConcurso[0] && <ShowBall LoteriaConcurso={states.loteriaConcurso[0]} />}
 
         </MainContainerU >
     )

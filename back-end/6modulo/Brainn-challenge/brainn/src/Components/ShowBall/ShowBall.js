@@ -7,18 +7,17 @@ export default function ShowBall(props) {
     const { states, requests } = useGlobal();
 
     const concurso = states.concursosById
-    console.log(states);
-
+    // console.log(props.LoteriaConcurso);
+    // console.log(states);
+    const loteriaConcurso = states.loteriaConcurso[0]
     useEffect(() => {
-        requests.getConcursosById('2359')
+        { loteriaConcurso.concursoId && requests.getConcursosById(loteriaConcurso.concursoId) }
     }, [])
-
-    // await requests.getConcursosById("2359")
 
 
     const doBall = concurso && concurso.numeros && concurso.numeros.map((num) => {
-        console.log(num);
-        return (<Ball>
+        // console.log(num);
+        return (<Ball key={num}>
             <NumberInsideTheBall> {num} </NumberInsideTheBall>
 
 
