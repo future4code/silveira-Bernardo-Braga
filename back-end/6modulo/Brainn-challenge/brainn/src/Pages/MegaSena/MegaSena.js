@@ -9,7 +9,7 @@ import { ContainerMS } from "./StyledMS";
 export default function MegaSena() {
     const { states, requests } = useGlobal();
 
-    // console.log(states);
+    console.log(states);
 
     return (
         <MainContainerU>
@@ -27,7 +27,7 @@ export default function MegaSena() {
 
             </ContainerMS>
 
-            {states.concursosById && states && states.loteriaConcurso[0] && <ShowBall LoteriaConcurso={states.loteriaConcurso[0]} />}
+            {states.concursosById && states && states.loteriaConcurso[0] && <ShowBall LoteriaConcurso={0} />}
 
         </MainContainerU >
     )

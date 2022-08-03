@@ -7,11 +7,14 @@ export default function ShowBall(props) {
     const { states, requests } = useGlobal();
 
     const concurso = states.concursosById
-    // console.log(props.LoteriaConcurso);
+    console.log(props);
     // console.log(states);
-    const loteriaConcurso = states.loteriaConcurso[0]
+
+    const loteriaConcurso = states.loteriaConcurso
+
+    console.log(loteriaConcurso);
     useEffect(() => {
-        { loteriaConcurso.concursoId && requests.getConcursosById(loteriaConcurso.concursoId) }
+        { loteriaConcurso && requests.getConcursosById(loteriaConcurso[Number(props.loteriaConcurso)]) }
     }, [])
 
 
@@ -34,4 +37,4 @@ export default function ShowBall(props) {
 
     )
 
-} 
+}
