@@ -14,6 +14,7 @@ export default function GlobalState(props) {
     const [loteriaConcurso, setLoteriaConcurso] = useState([])
     const [concursosById, setConcursoById] = useState({})
     const [idConcurso, setIdConcurso] = useState([])
+    const [pagina, setPagina] = useState('')
 
 
 
@@ -111,8 +112,8 @@ export default function GlobalState(props) {
 
     }, [])
 
-    const states = { loteria, loteriaConcurso, concursosById, idConcurso };
-    const setters = { setLoteria, setLoteriaConcurso, setConcursoById };
+    const states = { loteria, loteriaConcurso, concursosById, idConcurso, pagina };
+    const setters = { setLoteria, setLoteriaConcurso, setConcursoById, setPagina };
     const requests = { getLoteria, getConcursosById, getLoteriaConcursos };
 
     return (

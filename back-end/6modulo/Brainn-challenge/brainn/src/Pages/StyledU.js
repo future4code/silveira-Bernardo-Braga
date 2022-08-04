@@ -17,8 +17,8 @@ export const MainContainerU = styled.div`
 
 
 export const Button = styled.button`
-    
-    position: absolute;
+/*     
+    position: absolute; */
     left: 6%;
     right: 80.51%;
     top: 8.52%;
@@ -27,7 +27,7 @@ export const Button = styled.button`
     background: #FFFFFF;
 
 `
-export const NameLoteria = styled.div`
+export const NameLoteria = styled.p`
 
     position: absolute;
     left: 11.11%;

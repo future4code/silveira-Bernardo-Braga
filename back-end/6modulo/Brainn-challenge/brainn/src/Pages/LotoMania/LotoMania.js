@@ -4,30 +4,47 @@ import { useGlobal } from '../../Global/GlobalStateContext';
 import { Button, Concurso, Data, MainContainerU, NameLoteria } from '../StyledU';
 import { ContainerLM } from "./StyledLM";
 
-
+import { useNavigate } from 'react-router-dom';
+import { useForm } from '../../Hooks/UseForm';
+import { goToPage } from '../../Router/Coordinator';
 
 export default function LotoMania() {
-    const { states, requests } = useGlobal();
+    const { form, onChange, cleanField } = useForm({ pagina: '' })
+    const { states, setters, requests } = useGlobal();
+    const navigate = useNavigate();
 
+    const doCheckIn = e => {
+        e.preventDefault()
+        goToPage(navigate, states.pagina)
+        console.log('bernardo');
+        console.log(states);
+    }
 
     return (
         <MainContainerU>
             <ContainerLM>
+                <form onSubmit={doCheckIn}>
+                    <select name="pagina" value={states.pagina} onChange={(e) => { setters.setPagina(e.target.value) }}>
 
-                <Button>bernardo</Button>
+                        <option value="/diadesorte" >Dia de Sorte</option>
+                        <option value="/lotofacil" >Loto Facil</option>
+                        <option value="/lotomania" >Loto Mania</option>
+                        <option value="/" >Mega-Sena</option>
+                        <option value="/quina" >Quina</option>
+                        <option value="/timemania" >Time Mania</option>
 
+                    </select>
+                    <Button>IR PARA A PAGINA</Button>
+                </form>
 
-                <NameLoteria>MEGA-SENA</NameLoteria>
-                {/* {states.loteria && <p>{states.loteria[0].name} */}
+                {
+                    states && states.loteria && states.loteria[0] &&
+                    <NameLoteria>{states.loteria[3].nome}</NameLoteria>
+                }
                 <Concurso>CONCURSO</Concurso>
                 <Data>02/08/2022</Data>
-
-
-
             </ContainerLM>
-
-            {states.concursosById && states && states.loteriaConcurso[4] && <ShowBall LoteriaConcurso={states.loteriaConcurso[4]} />}
-
+            {states.concursosById && states && states.loteriaConcurso[3] && <ShowBall LoteriaConcurso={3} />}
         </MainContainerU >
     )
 }
