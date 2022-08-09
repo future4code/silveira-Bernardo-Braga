@@ -1,11 +1,14 @@
 import dotenv from "dotenv";
 import { app } from "./app";
+import PizzaController from "./Controller/PizzaController";
 
 
 dotenv.config();
 
 
-app
+const pizzaController = new PizzaController()
+
+app.post('/pizza', pizzaController.PostPizza)
 
 /* 
 
