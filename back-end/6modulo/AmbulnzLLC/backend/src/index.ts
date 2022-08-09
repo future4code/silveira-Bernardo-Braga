@@ -2,6 +2,11 @@ import dotenv from "dotenv";
 import { app } from "./app";
 
 
+dotenv.config();
+
+
+app
+
 /* 
 
 EXEMPLO DE SAIDA ESPERADA 
@@ -25,35 +30,4 @@ EXEMPLO DE SAIDA ESPERADA
     ]
   },
   {
-    "name": "Romana",
-    "price": 5,
-    "ingredients": [
-      "tomato",
-      "mozzarella",
-      "anchovies",
-      "oregano",
-      "oil"
-    ]
-  },
-  {
-    "name": "Diavola",
-    "price": 7.5,
-    "ingredients": [
-      "tomato",
-      "mozzarella",
-      "spicy salami"
-    ]
-  },
-  {
-    "name": "Pizza Bianca",
-    "price": 5,
-    "ingredients": [
-      "mozzarella",
-      "oregano"
-    ]
-  }
-]
-
 */
-
-dotenv.config();
