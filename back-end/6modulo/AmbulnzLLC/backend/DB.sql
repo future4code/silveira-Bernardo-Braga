@@ -4,7 +4,8 @@ create table
     AMBULNZLLC_PIZZA(
         id varchar(255) PRIMARY KEY NOT NULL,
         name VARCHAR(100) NOT NULL,
-        price int not null DEFAULT 0
+        price int not null DEFAULT 0,
+        quantity int(100) DEFAULT 1
     );
 
 create table
@@ -15,6 +16,12 @@ create table
         CONSTRAINT fk_pizza_ingredientes FOREIGN KEY (id_pizza) REFERENCES AMBULNZLLC_PIZZA(id)
     );
 
+-- ALTER TABLE AMBULNZLLC_PIZZA ADD quantity int(100);
+
 select * from AMBULNZLLC_PIZZA ;
 
 select * from AMBULNZLLC_INGREDIENTS ;
+
+-- drop table AMBULNZLLC_INGREDIENTS;
+
+-- drop table AMBULNZLLC_PIZZA ;

@@ -10,6 +10,9 @@ const pizzaController = new PizzaController()
 
 app.post('/pizza', pizzaController.PostPizza)
 
+app.get('/pizza', pizzaController.GetPizza)
+app.post('/orders',)
+
 /* 
 
 EXEMPLO DE SAIDA ESPERADA 

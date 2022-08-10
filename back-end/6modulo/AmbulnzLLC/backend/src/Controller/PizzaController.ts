@@ -32,5 +32,22 @@ export default class PizzaController {
 
     }
 
+    public async GetPizza(req: Request, res: Response) {
+        try {
+
+            const pizzaBS = new PizzaBussiness()
+
+            const pizzas = await pizzaBS.GetPizza()
+            // console.log(pizzas);
+
+
+            res.status(200).send({ pizzas })
+        } catch (err: any) {
+            res.status(500).send({ message: err.message || err.sqlMessage })
+        }
+    }
+
+
+
 
 }

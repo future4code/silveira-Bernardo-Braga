@@ -21,4 +21,31 @@ export class IngredientsData {
     }
 
 
+    public async GetIngredients() {
+        try {
+
+            const result = await connection(INGREDIENTS_DB)
+            // console.log(result);
+            return result
+        } catch (err: any) {
+            throw new Error(err.message || err.sqlMessage)
+
+        }
+
+    }
+
+    public async GetIngredientsById(id_pizza: string) {
+        try {
+
+            const result = await connection(INGREDIENTS_DB).where({ id_pizza })
+            // console.log(result);
+            return result
+        } catch (err: any) {
+            throw new Error(err.message || err.sqlMessage)
+
+        }
+
+    }
+
+
 }

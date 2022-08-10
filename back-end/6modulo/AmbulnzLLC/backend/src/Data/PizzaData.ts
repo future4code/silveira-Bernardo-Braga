@@ -21,5 +21,18 @@ export class PizzaData {
 
     }
 
+    public async GetPizza() {
+        try {
+
+            const result = await connection(PIZZA_DB)
+            // console.log(result);
+            return result
+        } catch (err: any) {
+            throw new Error(err.message || err.sqlMessage)
+
+        }
+
+    }
+
 
 }
