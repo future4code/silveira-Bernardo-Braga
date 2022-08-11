@@ -16,13 +16,13 @@ export default class PizzaController {
 
             const ingredient: Array<ingredientsType> = ingredients
 
-            console.log(pizza);
-            console.log(ingredient);
+            // console.log(pizza);
+            // console.log(ingredient);
 
             const pizzaBS = new PizzaBussiness()
-            const result = pizzaBS.PostPizza(pizza, ingredient)
+            const result = await pizzaBS.PostPizza(pizza, ingredient)
 
-            console.log('passou aqui');
+            // console.log('passou aqui');
 
             res.status(200).send('pizza criada com sucesso')
         } catch (err: any) {

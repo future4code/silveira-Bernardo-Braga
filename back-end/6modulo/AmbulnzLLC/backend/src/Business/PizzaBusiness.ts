@@ -24,14 +24,22 @@ export class PizzaBussiness {
         if (ingredients.length === 0) {
             throw new InputError('please tell me ... the ingredients of the pizza, please')
         }
+        const pizzaData = new PizzaData()
+
+        const namepizzaComparation = await pizzaData.GetPizzaByName(name)
+
+        console.log(namepizzaComparation);
+
+        if (namepizzaComparation.length > 0) {
+            throw new InputError('nome de pizza ja existe')
+        }
 
         const idPizza = generateId()
 
-        console.log(idPizza);
+        // console.log(idPizza);
 
         const pizzaModel = new PizzaModel(idPizza, name, price)
 
-        const pizzaData = new PizzaData()
         const ingredientsData = new IngredientsData()
         // console.log('==========================');
         await pizzaData.insertPizza(pizzaModel)
@@ -44,7 +52,7 @@ export class PizzaBussiness {
             const idIngredients = generateId()
             const ingredientsModel = new IngredientsModel(idIngredients, ingredients, idPizza)
 
-            console.log(ingredients[i].name);
+            // console.log(ingredients[i].name);
             await ingredientsData.insertIngredients(ingredientsModel, ingredients[i].name)
         }
         // await ingredientsData.insertIngredients()
@@ -70,8 +78,6 @@ export class PizzaBussiness {
                 id: idPizza,
                 name: result[i].name,
                 price: result[i].price,
-                quantity: result[i].quantity,
-
                 ingredients: ingredients
 
             }

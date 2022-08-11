@@ -34,5 +34,31 @@ export class PizzaData {
 
     }
 
+    public async GetPizzaByName(name: string) {
+        try {
+
+            const result = await connection(PIZZA_DB).where({ name: name })
+            // console.log(result);
+            return result
+        } catch (err: any) {
+            throw new Error(err.message || err.sqlMessage)
+
+        }
+
+    }
+
+    public async GetPizzaByid(id: string) {
+        try {
+
+            const result = await connection(PIZZA_DB).where({ id: id })
+            // console.log(result);
+            return result
+        } catch (err: any) {
+            throw new Error(err.message || err.sqlMessage)
+
+        }
+
+    }
+
 
 }
