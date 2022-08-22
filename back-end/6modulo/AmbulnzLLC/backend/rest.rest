@@ -1,0 +1,65 @@
+
+
+###
+
+# getPizza 
+GET http://localhost:3003/pizza
+
+
+
+
+###
+# getOrder
+GET http://localhost:3003/orders
+
+
+
+
+###
+# getOrderById
+GET http://localhost:3003/ordersById
+
+Content-Type: application/json
+
+{
+    "id":"659924b9-2b16-498b-9fee-6afce4c74ae2"
+}
+
+
+###
+# postPizza
+POST http://localhost:3003/pizza
+
+Content-Type: application/json
+
+{
+    "name":"testando as ordens",
+    "price":"32",
+    "ingredients":[
+        {
+            "name":"eu"
+        },
+        {
+            "name":"tu"
+        }
+    ]
+}
+
+###
+# postOrder
+
+POST http://localhost:3003/orders
+
+Content-Type: application/json
+
+{
+    "namePizza":"bernardo",
+    "idPizza":"d8ad59cb-b8da-4b78-9656-eb53ce285e7a",
+    "quantity":"12"
+}
+
+
+
+
+
+
